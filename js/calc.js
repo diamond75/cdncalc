@@ -440,6 +440,117 @@ var
 			$("#traffic_info tr:contains(JoDiHost) td:last").html('$' + result);
 		},
 
+        SpaceCDN: function () {
+            var p1, p2, p3, p4, note;
+            var traf = $("#traffic_volume").val();
+			var result = 0;
+            switch( true )
+            {
+                case traf <= 2000:
+                    p1 = Math.ceil(traf * 0.03);
+                    p2 = Math.ceil(traf * 0.032);
+                    p3 = Math.ceil(traf * 0.04);
+                    p4 = Math.ceil(traf * 0.05);
+                    note = '5  POPs - ' + p1 + '$' + '<br>' +
+                           '14 POPs - ' + p2 + '$' + '<br>' +
+                           '30 POPs - ' + p3 + '$' + '<br>' +
+                           '53 POPs - ' + p4 + '$';
+                    break;
+
+                case traf > 2000 && traf <= 10000:
+                    p1 = Math.ceil(traf * 0.0275);
+                    p2 = Math.ceil(traf * 0.029);
+                    p3 = Math.ceil(traf * 0.035);
+                    p4 = Math.ceil(traf * 0.040);
+                    note = '5  POPs - ' + p1 + '$' + '<br>' +
+                           '14 POPs - ' + p2 + '$' + '<br>' +
+                           '30 POPs - ' + p3 + '$' + '<br>' +
+                           '53 POPs - ' + p4 + '$';
+                    break;
+
+                case traf > 10000 && traf <= 20000:
+                    p1 = Math.ceil(traf * 0.025);
+                    p2 = Math.ceil(traf * 0.026);
+                    p3 = Math.ceil(traf * 0.030);
+                    p4 = Math.ceil(traf * 0.035);
+                    note = '5  POPs - ' + p1 + '$' + '<br>' +
+                           '14 POPs - ' + p2 + '$' + '<br>' +
+                           '30 POPs - ' + p3 + '$' + '<br>' +
+                           '53 POPs - ' + p4 + '$';
+                    break;
+
+                case traf > 20000 && traf <= 50000:
+                    p1 = Math.ceil(traf * 0.0225);
+                    p2 = Math.ceil(traf * 0.024);
+                    p3 = Math.ceil(traf * 0.027);
+                    p4 = Math.ceil(traf * 0.030);
+                    note = '5  POPs - ' + p1 + '$' + '<br>' +
+                           '14 POPs - ' + p2 + '$' + '<br>' +
+                           '30 POPs - ' + p3 + '$' + '<br>' +
+                           '53 POPs - ' + p4 + '$';
+                    break;
+
+                case traf > 50000 && traf <= 100000:
+                    p1 = Math.ceil(traf * 0.021);
+                    p2 = Math.ceil(traf * 0.022);
+                    p3 = Math.ceil(traf * 0.024);
+                    p4 = Math.ceil(traf * 0.028);
+                    note = '5  POPs - ' + p1 + '$' + '<br>' +
+                           '14 POPs - ' + p2 + '$' + '<br>' +
+                           '30 POPs - ' + p3 + '$' + '<br>' +
+                           '53 POPs - ' + p4 + '$';
+                    break;
+
+                case traf > 100000 && traf <= 200000:
+                    p1 = Math.ceil(traf * 0.019);
+                    p2 = Math.ceil(traf * 0.020);
+                    p3 = Math.ceil(traf * 0.022);
+                    p4 = Math.ceil(traf * 0.026);
+                    note = '5  POPs - ' + p1 + '$' + '<br>' +
+                           '14 POPs - ' + p2 + '$' + '<br>' +
+                           '30 POPs - ' + p3 + '$' + '<br>' +
+                           '53 POPs - ' + p4 + '$';
+                    break;
+
+
+                case traf > 200000 && traf <= 400000:
+                    p1 = Math.ceil(traf * 0.018);
+                    p2 = Math.ceil(traf * 0.019);
+                    p3 = Math.ceil(traf * 0.021);
+                    p4 = Math.ceil(traf * 0.025);
+                    note = '5  POPs - ' + p1 + '$' + '<br>' +
+                           '14 POPs - ' + p2 + '$' + '<br>' +
+                           '30 POPs - ' + p3 + '$' + '<br>' +
+                           '53 POPs - ' + p4 + '$';
+                    break;
+
+                case traf > 400000 && traf <= 1000000:
+                    p1 = Math.ceil(traf * 0.0175);
+                    p2 = Math.ceil(traf * 0.018);
+                    p3 = Math.ceil(traf * 0.020);
+                    p4 = Math.ceil(traf * 0.024);
+                    note = '5  POPs - ' + p1 + '$' + '<br>' +
+                           '14 POPs - ' + p2 + '$' + '<br>' +
+                           '30 POPs - ' + p3 + '$' + '<br>' +
+                           '53 POPs - ' + p4 + '$';
+                    break;
+
+                case traf > 1000000:
+                    p1 = Math.ceil(traf * 0.0175);
+                    p2 = Math.ceil(traf * 0.028);
+                    p3 = Math.ceil(traf * 0.020);
+                    p4 = Math.ceil(traf * 0.024);
+                    note = '5  POPs - ' + p1 + '$' + '<br>' +
+                           '14 POPs - ' + p2 + '$' + '<br>' +
+                           '30 POPs - ' + p3 + '$' + '<br>' +
+                           '53 POPs - ' + p4 + '$';
+                    break;
+            }
+			result = p1;
+            show_cdn_plan_notes("SpaceCDN", note);
+            $("#traffic_info tr:contains(SpaceCDN) td:last").html('$' + result);
+            },
+
 		SkyparkCDN: function () {
 			var currency_usd = 66;
 			var traf = $("#traffic_volume").val();
